@@ -1,0 +1,46 @@
+﻿@model Devedores.Models.ViewModel.DevedorFormViewModel
+
+@{
+    ViewData["Title"] = "Devedor>Inserir";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Inserir">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="row">
+                <fieldset class="form-group col-md-8">
+                    <label asp-for="Devedor.PessoaId" class="control-label"></label>
+                    <select asp-for="Devedor.PessoaId" asp-items="@(new SelectList(Model.Pessoas,"Id","Nome"))" class="form-control"></select>
+                </fieldset>
+
+                <fieldset class="form-group col-md-4" style="margin-top: 26px; margin-left: -25px">                    
+                    <a asp-action="InserirPessoas" class="form-control btn-success">Adicionar</a>
+                </fieldset>
+
+            </div>   
+            
+            <div class="form-group">
+                <label asp-for="Devedor.Valor" class="control-label"></label>
+                <input asp-for="Devedor.Valor" class="form-control" />
+                <span asp-validation-for="Devedor.Valor" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">              
+                <label asp-for="Devedor.Pago" class="col-lg-2 control-label" style="top: 12px;margin-left: -15px">Pago</label>
+                <div class="col-lg-10">
+                    <input asp-for="Devedor.Pago" class="form-control" style="width:50px; margin-left:-25px" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Inserir" class="btn btn-success" style="margin-top: 10px" />
+            </div>
+        </form>
+        </div>
+    </div>
+
