@@ -1,4 +1,5 @@
-﻿using Devedores.Data;
+﻿using Devedores.Controllers.Enums;
+using Devedores.Data;
 using Devedores.Models;
 using Devedores.Models.ViewModel;
 using Devedores.Servico;
@@ -43,7 +44,7 @@ namespace Devedores.Controllers
 
         public IActionResult InserirPessoas()
         {
-            return RedirectToAction(nameof(Inserir), "Pessoas");
+            return RedirectToAction(nameof(Inserir), "Pessoas", new { paginaRetorno = PaginaRetorno.DevedorInserir });
         }
 
         public IActionResult Editar(int? id)

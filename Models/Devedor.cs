@@ -8,8 +8,10 @@ namespace Devedores.Models
 {
     public class Devedor
     {
-        public int Id { get; set; }
+        public int Id { get; set; }        
         public Pessoa Pessoa { get; set; }
+
+        [Display(Name = "Pessoa")]
         public int PessoaId { get; set; }
 
         [Range(1.0, 50000.0, ErrorMessage = "{0} deve ser entre {1} e {2}")]        

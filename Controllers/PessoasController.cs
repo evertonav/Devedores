@@ -1,4 +1,5 @@
-﻿using Devedores.Models;
+﻿using Devedores.Controllers.Enums;
+using Devedores.Models;
 using Devedores.Servico;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -17,8 +18,9 @@ namespace Devedores.Controllers
             _pessoasServico = pessoasServico;
         }
 
-        public IActionResult Inserir()
+        public IActionResult Inserir(PaginaRetorno? paginaRetorno)
         {
+            ViewData["retornarPagina"] = paginaRetorno;
             return View(new Pessoa());
         }
 
@@ -29,5 +31,15 @@ namespace Devedores.Controllers
             _pessoasServico.Inserir(pessoa);
             return RedirectToAction(nameof(Inserir), "Devedores");
         }
+
+        public IActionResult DevedorInserir()
+        {
+            return RedirectToAction(nameof(Inserir), "Devedores");
+        }
+
+        public IActionResult DevedorEditar()
+        {
+            return RedirectToAction("Editar", "Devedores");
+        }        
     }
 }
