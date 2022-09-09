@@ -18,9 +18,19 @@ namespace Devedores.Controllers
             _pessoasServico = pessoasServico;
         }
 
-        public IActionResult Inserir(PaginaRetorno? paginaRetorno)
+        public IActionResult Inserir(PaginaRetorno? paginaRetorno, int? id)
         {
             ViewData["retornarPagina"] = paginaRetorno;
+
+            if (id.HasValue)
+            {
+                ViewData["idRotaPagina"] = id.Value;
+            }
+            else
+            {
+                ViewData["idRotaPagina"] = 0;
+            }
+
             return View(new Pessoa());
         }
 
@@ -37,9 +47,9 @@ namespace Devedores.Controllers
             return RedirectToAction(nameof(Inserir), "Devedores");
         }
 
-        public IActionResult DevedorEditar()
+        public IActionResult DevedorEditar(int? id)
         {
-            return RedirectToAction("Editar", "Devedores");
+            return RedirectToAction("Editar", "Devedores", new { id = id.Value });
         }        
     }
 }

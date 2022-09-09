@@ -42,9 +42,21 @@ namespace Devedores.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult InserirPessoas()
+        public IActionResult InserirPessoas(PaginaRetorno? paginaRetorno, int? id )
         {
-            return RedirectToAction(nameof(Inserir), "Pessoas", new { paginaRetorno = PaginaRetorno.DevedorInserir });
+            //https://docs.microsoft.com/pt-br/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper?view=aspnetcore-6.0
+            // Olhar esse link para continuar o desenvolvimento dessa solução
+            if (!paginaRetorno.HasValue)
+            {
+                paginaRetorno = PaginaRetorno.DevedorInserir;
+            }
+
+            if (!id.HasValue)
+            {
+                id = 0;
+            }
+
+            return RedirectToAction(nameof(Inserir), "Pessoas", new { paginaRetorno = paginaRetorno, id = id.Value });
         }
 
         public IActionResult Editar(int? id)

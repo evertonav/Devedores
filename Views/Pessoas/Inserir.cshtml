@@ -20,13 +20,15 @@
             </div>
             <div class="form-group">
                 <input type="submit" value="Inserir" class="btn btn-default" />
+
                 @if (ViewData["retornarPagina"].Equals(PaginaRetorno.DevedorInserir)) 
                 {
                     <a asp-action="DevedorInserir">Voltar para Devedores>Inserir</a>
                 } 
                 else
                 {
-                    <a asp-action="DevedorEditar">Voltar para Devedores>Editar</a>
+                    <a asp-action="DevedorEditar"
+                        asp-route-id="@ViewData["idRotaPagina"]">Voltar para Devedores>Editar</a>
                 }
                 
             </div>
