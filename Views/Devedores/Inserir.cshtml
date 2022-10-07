@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Devedor>Inserir";
+    string linkPaginaRetorno = $"/Devedores/Inserir";
 }
 
 <h2>@ViewData["Title"]</h2>
@@ -19,7 +20,7 @@
                 </fieldset>
 
                 <fieldset class="form-group col-md-4" style="margin-top: 26px; margin-left: -25px">                    
-                    <a asp-action="InserirPessoas" class="form-control btn-success">Adicionar</a>
+                    <a asp-action="InserirPessoas" asp-route-linkPaginaRetorno="@linkPaginaRetorno" class="form-control btn-success">Adicionar</a>
                 </fieldset>
 
             </div>   

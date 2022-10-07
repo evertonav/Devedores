@@ -18,18 +18,16 @@ namespace Devedores.Controllers
             _pessoasServico = pessoasServico;
         }
 
-        public IActionResult Inserir(PaginaRetorno? paginaRetorno, int? id)
+        public IActionResult Inserir(string paginaRetorno)
         {
-            ViewData["retornarPagina"] = paginaRetorno;
-
-            if (id.HasValue)
+            if (paginaRetorno != null)
             {
-                ViewData["idRotaPagina"] = id.Value;
+                ViewData["retornarPagina"] = paginaRetorno;
             }
             else
             {
-                ViewData["idRotaPagina"] = 0;
-            }
+                ViewData["retornarPagina"] = "";
+            }          
 
             return View(new Pessoa());
         }

@@ -2,6 +2,8 @@
 
 @{
     ViewData["Title"] = "Devedor>Editar";
+    string linkPaginaRetorno = $"/Devedores/Editar/{Model.Devedor.Id}";
+    
 }
 
 <h2>@ViewData["Title"]</h2>
@@ -16,10 +18,10 @@
                 <fieldset class="form-group col-md-8">
                     <label asp-for="Devedor.PessoaId" class="control-label"></label>
                     <select asp-for="Devedor.PessoaId" asp-items="@(new SelectList(Model.Pessoas,"Id","Nome"))" class="form-control"></select>
-                </fieldset>
+                </fieldset>    
 
-                <!-- <fieldset class="form-group col-md-4" style="margin-top: 26px; margin-left: -25px">
-                    <a asp-action="InserirPessoas" class="form-control btn-success">Adicionar</a>
+                <!--<fieldset class="form-group col-md-4" style="margin-top: 26px; margin-left: -25px">
+                    <a asp-action="InserirPessoas" asp-route-linkPaginaRetorno="@linkPaginaRetorno" class="form-control btn-success">Adicionar</a>
                 </fieldset>-->
 
             </div>
